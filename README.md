@@ -12,7 +12,7 @@ Install the dependencies: `bundle install`.
 
 Test the script works: `ruby dynamic-host.rb`
 
-Set up a cronjob to run the above `* * * * * ruby /path/to/dynamic-host.rb`
+Set up a cronjob to run the above `* * * * * /path/to/ruby /path/to/dynamic-host.rb`
 
 License
 -------

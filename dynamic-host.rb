@@ -4,7 +4,7 @@ require 'yaml'
 require 'open-uri'
 
 # Load our configuration
-config = YAML.load_file('config.yml')
+config = YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'config.yml'))
 
 # Sort out domain parts
 hostname = config["hostname"].chomp(".")
@@ -12,7 +12,7 @@ zonename = hostname.split(".")[1..-1].join(".")
 arecord = hostname + "."
 
 # Check our IP address'
-host_ip = IPSocket.getaddress(hostname) #rescue ""
+host_ip = IPSocket.getaddress(hostname) rescue ""
 if config["external_ip"]
   current_ip = open("http://www.google.co.uk/search?q=what+is+my+ip") do |f|
     /([0-9]{1,3}\.){3}[0-9]{1,3}/.match(f.read).to_s
@@ -45,7 +45,5 @@ else
   # Display result
   unless current_ip
     puts "Dynamic host #{hostname} not updated, couldn't find current ip address!"
-  else
-    puts "Dynamic host #{hostname} is up to date."
   end
 end
