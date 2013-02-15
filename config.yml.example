@@ -1,0 +1,10 @@
+# Domain details, zone must already exist in your account
+hostname: laptop.domain.com
+ttl: 60
+
+# PointHQ credentials, API Token can be found on "My Account" page
+point_user: your@email.com
+point_apitoken: pe97hq3ugc3vplztg7cyqc3rc6z47j8i1lxlssx7
+
+# Set to false if you're not behind NAT, true otherwise
+external_ip: true
