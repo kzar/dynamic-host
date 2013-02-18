@@ -1,6 +1,9 @@
 # Domain details, zone must already exist in your account
-hostname: laptop.domain.com
+zonename: domain.com
+subdomain: laptop # Blank for root record
 ttl: 60
+
+
 
 # PointHQ credentials, API Token can be found on "My Account" page
 point_user: your@email.com

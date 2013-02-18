@@ -7,8 +7,9 @@ require 'open-uri'
 config = YAML.load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'config.yml'))
 
 # Sort out domain parts
-hostname = config["hostname"].chomp(".")
-zonename = hostname.split(".")[1..-1].join(".")
+zonename = config["zonename"].chomp(".")
+subdomain = config["subdomain"]
+hostname = !subdomain || subdomain.empty? ? zonename : [subdomain, zonename].join(".")
 arecord = hostname + "."
 
 # Check our IP address'
