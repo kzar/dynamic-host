@@ -15,7 +15,7 @@ arecord = hostname + "."
 # Check our IP address'
 host_ip = IPSocket.getaddress(hostname) rescue ""
 if config["external_ip"]
-  current_ip = open("http://google.com/search?q=what+is+my+ip",
+  current_ip = open(config["ip_webpage"],
                      "User-Agent" => "Mozilla/5.0 (MSIE 9.0; Windows NT 6.1; Trident/5.0)") do |f|
     /([0-9]{1,3}\.){3}[0-9]{1,3}/.match(f.read).to_s
   end

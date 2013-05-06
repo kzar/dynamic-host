@@ -3,6 +3,8 @@ zonename: domain.com
 subdomain: laptop # Blank for root record
 ttl: 60
 
+# Webpage we're grabbing our IP address from
+ip_webpage: "http://google.com/search?q=what+is+my+ip"
 
 
 # PointHQ credentials, API Token can be found on "My Account" page
