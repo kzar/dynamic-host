@@ -28,8 +28,8 @@ if current_ip and current_ip != host_ip
   # Set up PointHQ credentials
   Point.username = config["point_user"]
   Point.apitoken = config["point_apitoken"]
-  # Find our zone (FIXME: Simplify once this makes it https://github.com/atech/point/pull/1 )
-  zone = Point::Zone.find(:all).select {|r| r.attributes["name"] == zonename}.first
+  # Find our zone
+  zone = Point::Zone.find(zonename)
   # Find our record / create it
   record = zone.records.select do |r|
     r.attributes["name"] == arecord && r.attributes["record_type"] == "A"
